@@ -14,5 +14,19 @@ void main() {
 
     //confirms if the button exist
     expect(button, findsOneWidget);
+
+    await tester.tap(find.byIcon(Icons.add));
+    expect(button, findsOneWidget);
+
+    // find the floating button 
+    var floatingButton = find.byIcon(Icons.add);
+    expect(floatingButton, findsOneWidget);
+
+    // find the button 
+    await tester.tap(floatingButton);
+
+    // await execution of one frame 
+    await tester.pump();
+
   });
 }
